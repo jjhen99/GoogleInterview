@@ -41,7 +41,7 @@ public class Main {
             firstLoopIndex++;
             }
 
-            if (thereIsSum == false) {
+            if (!thereIsSum) {
                 System.out.println("No pairs were found");
             }
     }
