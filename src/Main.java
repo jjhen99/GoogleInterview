@@ -1,10 +1,12 @@
 public class Main {
     public static void main(String[] args) {
-        int x = 10;
+        int x = 8;
 
         boolean thereIsSum = false;
 
-        int[] myList = {2,9,7,5,7,4,3,6,5,4,7,8};
+        int[] myList = {1,2,3,4,4,5,6,7};
+
+        //System.out.println(myList.length);
 
         int pairsCount = 0;
 
@@ -21,7 +23,7 @@ public class Main {
             for (int j : myList) {
 
                 //This part resets the second loop index so that it does not go higher than the length of the list.
-                if (secondLoopIndex == (myList.length + 1)){
+                if (secondLoopIndex == (myList.length)){
                     secondLoopIndex = 0;
                 }
 
