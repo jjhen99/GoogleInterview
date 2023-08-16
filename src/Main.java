@@ -1,10 +1,13 @@
+import java.util.HashSet;
+import java.util.Set;
+
 public class Main {
     public static void main(String[] args) {
         int x = 8;
 
         boolean thereIsSum = false;
 
-        int[] myList = {1,2,3,4,4,5,6,7};
+        int[] myList = {1,2,3,6,7,};
 
         //System.out.println(myList.length);
 
@@ -12,6 +15,7 @@ public class Main {
 
         int firstLoopIndex = 0;
         int secondLoopIndex = 0;
+        Set<String> printedPairs = new HashSet<>();
 
         System.out.println("We want to find pairs for this number: " + x);
 
@@ -29,17 +33,21 @@ public class Main {
 
                 //System.out.println("This is the second loop index: " + secondLoopIndex);
 
-                if (j == y && ((i-j) <= 0) && (firstLoopIndex != secondLoopIndex)) {
-                    thereIsSum = true;
-                    int[] pair = {i, j};
-                    pairsCount++;
-                    System.out.println("Pair " + pairsCount + ": " + pair[0] + " (idx " + firstLoopIndex + ")" + " and " + pair[1]+ " (idx " + secondLoopIndex + ")");
+                if ((j == y) && (i <= j) && (firstLoopIndex != secondLoopIndex)) {
+                    String pairKey = i + "," + j;
+                    if(!printedPairs.contains(pairKey)){
+                        printedPairs.add(pairKey);
+                        thereIsSum = true;
+                        pairsCount++;
+                        System.out.println("Pair " + pairsCount + ": " + i + " (idx " + firstLoopIndex + ")" + " and " + j + " (idx " + secondLoopIndex + ")");
+                    }
                     secondLoopIndex = 0;
                     break;
                 }
 
                 secondLoopIndex++;
                 }
+
             firstLoopIndex++;
             }
 
